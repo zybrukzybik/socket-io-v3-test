@@ -1,8 +1,8 @@
 require('dotenv').config()
 const io = require("socket.io-client");
 
-// const HOST = 'http://localhost'
-const HOST = process.env.HOST
+const HOST = 'http://localhost'
+// const HOST = process.env.HOST
 const PORT = process.env.PORT
 
 console.log(HOST)
@@ -25,3 +25,7 @@ socket.on('message', (msg) => {
 socket.on('disconnect', () => {
     console.log('Disconnected')
 })
+
+setTimeout(() => {
+    socket.emit('message', 'Testing messages')
+}, 3000)
