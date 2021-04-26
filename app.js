@@ -1,6 +1,8 @@
 const Koa = require('koa')
 const app = new Koa()
 
+const PORT = 4003
+
 const server = require('http').createServer(app.callback())
 
 const io = require('socket.io')(server)
@@ -27,6 +29,6 @@ app.use(ctx => {
     ctx.body = 'Hello from Koa-SocketIO'
 })
 
-server.listen(4000, () => {
-    console.log(`Server started at http://localhost:4000`)
+server.listen(PORT, () => {
+    console.log(`Server started at http://localhost:${PORT}`)
 })
