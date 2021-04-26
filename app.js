@@ -5,7 +5,11 @@ const PORT = 4003
 
 const server = require('http').createServer(app.callback())
 
-const io = require('socket.io')(server)
+const io = require('socket.io')(server, {
+    cors: {
+        origin: '*'
+    }
+})
 
 io.on('connection', (socket) => {
     console.log(`User connected ${socket.id}`)
@@ -30,5 +34,6 @@ app.use(ctx => {
 })
 
 server.listen(PORT, () => {
+    console.log(server.address())
     console.log(`Server started at http://localhost:${PORT}`)
 })

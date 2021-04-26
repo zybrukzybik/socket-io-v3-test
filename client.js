@@ -1,6 +1,13 @@
+require('dotenv').config()
 const io = require("socket.io-client");
 
-const socket = io('http://localhost:4003')
+// const HOST = 'http://localhost'
+const HOST = process.env.HOST
+const PORT = process.env.PORT
+
+console.log(HOST)
+console.log(PORT)
+const socket = io(`${HOST}:${PORT}`)
 
 socket.on('connect', () => {
     console.log('Connected')
