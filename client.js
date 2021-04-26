@@ -13,13 +13,13 @@ socket.on('connect', () => {
     console.log('Connected')
 })
 
-socket.on('salut', (msg) => {
-    console.log(msg)
-    socket.emit('salut', `Hi, i'm connected!`)
+socket.on('handshake', (msg) => {
+    console.log(`Event handshake: ${msg}`)
+    socket.emit('handshake', 'Hi from client')
 })
 
-socket.on('message', msg => {
-    console.log(msg)
+socket.on('message', (msg) => {
+    console.log(`Received: ${msg}`)
 })
 
 socket.on('disconnect', () => {

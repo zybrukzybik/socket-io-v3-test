@@ -13,15 +13,16 @@ const io = require('socket.io')(server, {
 
 io.on('connection', (socket) => {
     console.log(`User connected ${socket.id}`)
-    socket.emit('salut', 'Hello from server!')
 
-    socket.on('salut', (msg) => {
-        console.log(msg)
+    socket.emit('handshake', 'Hi from server!')
+
+    socket.on('handshake', (msg) => {
+        console.log(`Event handshake: ${msg}`)
     })
 
-    socket.on('message', (click) => {
-        console.log(`${click} - ${socket.id}`)
-        socket.emit('message', 'Click received')
+    socket.on('message', (msg) => {
+        console.log(`Received: ${msg} - from: ${socket.id}`)
+        socket.emit('message', msg)
     })
 
     socket.on('disconnect', () => {
