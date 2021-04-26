@@ -1,8 +1,8 @@
 require('dotenv').config()
 const io = require("socket.io-client");
 
-const HOST = 'http://localhost'
-// const HOST = process.env.HOST
+// const HOST = 'http://localhost'
+const HOST = process.env.HOST
 const PORT = process.env.PORT
 
 console.log(HOST)
