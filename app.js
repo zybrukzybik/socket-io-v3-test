@@ -9,6 +9,15 @@ const io = require('socket.io')(server, {
     cors: {
         origin: 'http://localhost'
     },
+    allowRequest: (req, cb) => {
+        console.log(req)
+        cb(null, true)
+    }
+})
+
+io.use(function (socket, next) {
+    console.log(socket.req.headers)
+    return next()
 })
 
 io.on('connection', (socket) => {
