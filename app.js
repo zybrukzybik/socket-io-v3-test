@@ -7,7 +7,12 @@ const server = require('http').createServer(app.callback())
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: 'http://localhost'
+        origin: [
+            'http://localhost:63342',
+            'http://localhost:3000',
+            'http://localhost:4000',
+            'null'
+        ]
     },
     allowRequest: (req, cb) => {
         console.log(req.headers)
