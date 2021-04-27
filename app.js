@@ -7,7 +7,7 @@ const server = require('http').createServer(app.callback())
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: '*'
+        origin: 'http://localhost'
     },
 })
 
