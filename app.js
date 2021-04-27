@@ -6,9 +6,7 @@ const PORT = 4003
 const server = require('http').createServer(app.callback())
 
 const io = require('socket.io')(server, {
-    cors: {
-        origin: '*'
-    }
+    cors: true
 })
 
 io.on('connection', (socket) => {
