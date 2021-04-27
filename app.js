@@ -9,7 +9,7 @@ const io = require('socket.io')(server, {
     cors: true,
     allowRequest: (req, cb) => {
         console.log(req.headers)
-        cb(null, true)
+        cb(null, false)
     }
 })
 
