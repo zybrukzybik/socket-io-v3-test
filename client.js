@@ -26,6 +26,6 @@ socket.on('disconnect', () => {
     console.log('Disconnected')
 })
 
-setTimeout(() => {
-    socket.emit('message', 'Testing messages')
+setInterval(() => {
+    socket.emit('message', 'Test message')
 }, 3000)
