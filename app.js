@@ -10,14 +10,9 @@ const io = require('socket.io')(server, {
         origin: 'http://localhost'
     },
     allowRequest: (req, cb) => {
-        console.log(req)
+        console.log(req.headers)
         cb(null, true)
     }
-})
-
-io.use(function (socket, next) {
-    console.log(socket.req.headers)
-    return next()
 })
 
 io.on('connection', (socket) => {
