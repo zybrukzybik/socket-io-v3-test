@@ -1,7 +1,8 @@
+require('dotenv').config()
 const Koa = require('koa')
 const app = new Koa()
 
-const PORT = 4003
+const PORT = process.env.PORT
 
 const server = require('http').createServer(app.callback())
 
